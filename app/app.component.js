@@ -20,7 +20,7 @@ var AppComponent = (function () {
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            template: "\n  \t<h1>{{ title }}</h1>\n  \t<h2>{{ hero.name }} details!</h2>\n  \t<div>\n  \t\t<label>id: </label> {{ hero.id }}\n  \t</div>\n  \t<div>\n\t\t<label>name: </label> <input type=\"text\" value=\"{{ hero.name }}\" placeholder=\"name\" />\n  \t</div>",
+            template: "\n  \t<h1>{{ title }}</h1>\n  \t<h2>{{ hero.name }} details!</h2>\n  \t<div>\n  \t\t<label>id: </label> {{ hero.id }}\n  \t</div>\n  \t<div>\n\t\t<label>name: </label> <input [(ngModel)]=\"hero.name\" type=\"text\" placeholder=\"name\" />\n  \t</div>",
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);

@@ -10,7 +10,7 @@ import { Hero } from './shared/models/hero';
   		<label>id: </label> {{ hero.id }}
   	</div>
   	<div>
-		<label>name: </label> <input type="text" value="{{ hero.name }}" placeholder="name" />
+		<label>name: </label> <input [(ngModel)]="hero.name" type="text" placeholder="name" />
   	</div>`,
 })
 
