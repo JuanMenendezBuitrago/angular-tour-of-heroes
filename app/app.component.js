@@ -9,18 +9,29 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var HEROES = [
+    { id: 11, name: 'Mr. Nice' },
+    { id: 12, name: 'Narco' },
+    { id: 13, name: 'Bombasto' },
+    { id: 14, name: 'Celeritas' },
+    { id: 15, name: 'Magneta' },
+    { id: 16, name: 'RubberMan' },
+    { id: 17, name: 'Dynama' },
+    { id: 18, name: 'Dr IQ' },
+    { id: 19, name: 'Magma' },
+    { id: 20, name: 'Tornado' }
+];
 var AppComponent = (function () {
     function AppComponent() {
         this.title = 'Tour of heroes';
-        this.hero = {
-            id: 1,
-            name: 'Windstorm'
-        };
+        this.heroes = HEROES;
+        this.hero = HEROES[0];
     }
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            template: "\n  \t<h1>{{ title }}</h1>\n  \t<h2>{{ hero.name }} details!</h2>\n  \t<div>\n  \t\t<label>id: </label> {{ hero.id }}\n  \t</div>\n  \t<div>\n\t\t<label>name: </label> <input [(ngModel)]=\"hero.name\" type=\"text\" placeholder=\"name\" />\n  \t</div>",
+            template: "\n  \t<h1>{{ title }}</h1>\n  \t<h2>My Heroes</h2>\n\t<ul class=\"heroes\">\n\t\t<li *ngFor=\"let hero of heroes\">\n\t\t\t<span class=\"badge\">{{ hero.id }}</span> {{ hero.name }}\n\t\t</li>\n\t</ul>",
+            styles: ["\n\t\t.selected {\n\t\t\tbackground-color: #CFD8DC !important;\n\t\t\tcolor: white;\n\t\t}\n\t\t.heroes {\n\t\t\tlist-style-type: none;\n\t\t\tmargin: 0 0 2em 0;\n\t\t\tpadding: 0;\n\t\t\twidth: 15em;\n\t\t}\n\t\t.heroes li {\n\t\t\tbackground-color: #EEE;\n\t\t\tborder-radius: 4px;\n\t\t\tcursor: pointer;\n\t\t\theight: 1.6em;\n\t\t\tleft: 0;\n\t\t\tmargin: 1.5em;\n\t\t\tpadding: .3em 0;\n\t\t\tposition: relative;\n\t\t}\n\t\t.heroes li.selected:hover {\n\t\t\tbackground-color: #BBD8DC !important;\n\t\t\tcolor: white;\n\t\t}\n\t\t.heroes li:hover {\n\t\t\tbackground-color: #DDD;\n\t\t\tcolor: #607D8B;\n\t\t\tleft: .1em;\n\t\t}\n\t\t.heroes .text {\n\t\t\tposition: relative;\n\t\t\ttop: -3px;\n\t\t}\n\t\t.heroes .badge {\n\t\t\tbackground-color: #607D8B;\n\t\t\tborder-radius: 4px 0 0 4px;\n\t\t\tcolor: white;\n\t\t\tdisplay: inline-block;\n\t\t\tfont-size: small;\n\t\t\theight: 3.8em;\n\t\t\tleft: -1px;\n\t\t\tline-height: 1em;\n\t\t\tmargin-right: .8em;\n\t\t\tpadding: 0.8em 0.7em 0 0.7em;\n\t\t\tposition: relative;\n\t\t\ttop: -4px;\n\t\t}\n\t"]
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);
