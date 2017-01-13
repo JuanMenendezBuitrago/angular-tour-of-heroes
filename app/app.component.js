@@ -25,13 +25,16 @@ var AppComponent = (function () {
     function AppComponent() {
         this.title = 'Tour of heroes';
         this.heroes = HEROES;
-        this.hero = HEROES[0];
     }
+    AppComponent.prototype.onSelect = function (hero) {
+        this.selectedHero = hero;
+        console.log(hero);
+    };
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            template: "\n  \t<h1>{{ title }}</h1>\n  \t<h2>My Heroes</h2>\n\t<ul class=\"heroes\">\n\t\t<li *ngFor=\"let hero of heroes\">\n\t\t\t<span class=\"badge\">{{ hero.id }}</span> {{ hero.name }}\n\t\t</li>\n\t</ul>",
-            styles: ["\n\t\t.selected {\n\t\t\tbackground-color: #CFD8DC !important;\n\t\t\tcolor: white;\n\t\t}\n\t\t.heroes {\n\t\t\tlist-style-type: none;\n\t\t\tmargin: 0 0 2em 0;\n\t\t\tpadding: 0;\n\t\t\twidth: 15em;\n\t\t}\n\t\t.heroes li {\n\t\t\tbackground-color: #EEE;\n\t\t\tborder-radius: 4px;\n\t\t\tcursor: pointer;\n\t\t\theight: 1.6em;\n\t\t\tleft: 0;\n\t\t\tmargin: 1.5em;\n\t\t\tpadding: .3em 0;\n\t\t\tposition: relative;\n\t\t}\n\t\t.heroes li.selected:hover {\n\t\t\tbackground-color: #BBD8DC !important;\n\t\t\tcolor: white;\n\t\t}\n\t\t.heroes li:hover {\n\t\t\tbackground-color: #DDD;\n\t\t\tcolor: #607D8B;\n\t\t\tleft: .1em;\n\t\t}\n\t\t.heroes .text {\n\t\t\tposition: relative;\n\t\t\ttop: -3px;\n\t\t}\n\t\t.heroes .badge {\n\t\t\tbackground-color: #607D8B;\n\t\t\tborder-radius: 4px 0 0 4px;\n\t\t\tcolor: white;\n\t\t\tdisplay: inline-block;\n\t\t\tfont-size: small;\n\t\t\theight: 3.8em;\n\t\t\tleft: -1px;\n\t\t\tline-height: 1em;\n\t\t\tmargin-right: .8em;\n\t\t\tpadding: 0.8em 0.7em 0 0.7em;\n\t\t\tposition: relative;\n\t\t\ttop: -4px;\n\t\t}\n\t"]
+            template: "\n  \t<h1>{{ title }}</h1>\n  \t<h2>My Heroes</h2>\n\t<ul class=\"heroes\">\n\t\t<li *ngFor=\"let hero of heroes\" \n\t\t\t(click)=\"onSelect(hero)\" \n\t\t\t[class.selected]=\"hero === selectedHero\">\n\t\t\t<span class=\"badge\">{{ hero.id }}</span> {{ hero.name }}\n\t\t</li>\n\t</ul>\n\t<div *ngIf=\"selectedHero\">\n\t\t<h2>{{selectedHero.name}} details!</h2>\n\t    <div><label>id: </label>{{selectedHero.id}}</div>\n\t    <div>\n\t        <label>name: </label>\n\t        <input [(ngModel)]=\"selectedHero.name\" placeholder=\"name\"/>\n\t\t</div>\n    </div>",
+            styles: ["\n  .selected {\n    background-color: #CFD8DC !important;\n    color: white;\n  }\n  .heroes {\n    margin: 0 0 2em 0;\n    list-style-type: none;\n    padding: 0;\n    width: 15em;\n  }\n  .heroes li {\n    cursor: pointer;\n    position: relative;\n    left: 0;\n    background-color: #EEE;\n    margin: .5em;\n    padding: .3em 0;\n    height: 1.6em;\n    border-radius: 4px;\n  }\n  .heroes li.selected:hover {\n    background-color: #BBD8DC !important;\n    color: white;\n  }\n  .heroes li:hover {\n    color: #607D8B;\n    background-color: #DDD;\n    left: .1em;\n  }\n  .heroes .text {\n    position: relative;\n    top: -3px;\n  }\n  .heroes .badge {\n    background-color: #607D8B;\n    color: white;\n    display: inline-block;\n    font-size: small;\n    height: 1.8em;\n    padding: 0.8em 0.7em 0 0.7em;\n    line-height: 1em;\n    position: relative;\n    left: -1px;\n    top: -4px;\n    margin-right: .8em;\n    border-radius: 4px 0 0 4px;\n  }\n"]
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);
