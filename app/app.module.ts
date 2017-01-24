@@ -21,7 +21,7 @@ import { HeroService} from './hero.service';
   	BrowserModule,
   	FormsModule,
     HttpModule,
-    InMemoryDataService.forRoot(InMemoryDataService),
+    InMemoryWebApiModule.forRoot(InMemoryDataService),
   	AppRoutingModule,
   ],
   declarations: [ 
